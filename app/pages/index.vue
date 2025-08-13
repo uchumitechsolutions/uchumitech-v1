@@ -371,8 +371,8 @@
             <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
             <ul class="space-y-2">
               <li class="text-gray-400">Nairobi, Kenya</li>
-              <li class="text-gray-400">info@uchumitechsolution.com</li>
-              <li class="text-gray-400">+254 700 000 000</li>
+              <li class="text-gray-400">uchumitechsolutions@gmail.com</li>
+              <li class="text-gray-400">+254 715 389 568</li>
             </ul>
           </div>
         </div>
