@@ -128,7 +128,7 @@
           <div class="scroll-reveal animation-delay-200">
             <div class="relative">
               <img 
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                src="https://img.freepik.com/premium-photo/portrait-black-man-as-computer-programmer-looking-camera-while-writing-code-office-workplac_236854-44721.jpg" 
                 alt="Team working"
                 class="rounded-2xl shadow-2xl hover-lift"
               >
@@ -379,7 +379,7 @@
         
         <div class="border-t border-gray-800 mt-8 pt-8 text-center">
           <p class="text-gray-400">
-            © 2025 UchumiTechSolution. All rights reserved. Made with ❤️ in Kenya.
+            © 2025 UchumiTechSolution. All rights reserved. Made with ❤️.
           </p>
         </div>
       </div>
@@ -411,21 +411,21 @@ const form = ref({
 // Sample projects data
 const projects = ref([
   {
-    title: 'E-commerce Platform',
+    title: 'Yolo Tickets',
     description: 'Modern online store with payment integration and inventory management',
-    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    image: 'https://media.licdn.com/dms/image/v2/D4D12AQGdGjTVOsoCXQ/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1663579718593?e=2147483647&v=beta&t=jNrVFEndi71ZftVJSEQnh0alknecio20kjMArXMvCOw',
     tags: ['React', 'Node.js', 'MongoDB']
   },
   {
-    title: 'Restaurant Management App',
-    description: 'Complete restaurant management system with POS and analytics',
-    image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    title: 'Kadesh Enterprise',
+    description: 'Corporate business website with service portfolio, client management system, and contact integration.',
+    image: 'https://images.unsplash.com/photo-1718524767488-10ee93e05e9c?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     tags: ['Flutter', 'Firebase', 'Analytics']
   },
   {
     title: 'Educational Portal',
     description: 'Learning management system for schools and training institutes',
-    image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    image: 'https://cdn2.f-cdn.com/contestentries/75891/747393/536a4f434f268_thumb900.jpg',
     tags: ['Vue.js', 'Laravel', 'MySQL']
   }
 ])
