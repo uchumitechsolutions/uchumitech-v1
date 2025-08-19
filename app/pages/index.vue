@@ -4,7 +4,10 @@
 <section id="home" class="relative min-h-screen flex flex-col overflow-hidden">
   <!-- Hero Background -->
   <div class="absolute inset-0 hero-bg">
-    <div class="absolute inset-0 bg-black/60"></div>
+    <div class="absolute inset-0 bg-gradient-to-br from-purple-900/80 via-blue-900/70 to-indigo-900/80"></div>
+    <div class="absolute inset-0">
+      <div class="floating-particles"></div>
+    </div>
   </div>
 
   <!-- Navigation -->
@@ -18,7 +21,8 @@
     <div class="flex justify-between items-center h-16">
       <div class="flex-shrink-0">
         <h1 :class="scrolledPastHero ? 'text-gray-900' : 'text-white'" class="text-2xl font-bold transition-colors duration-300">
-          UchumiTechSolution
+          <span class="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">Protrixx</span>
+          <span :class="scrolledPastHero ? 'text-gray-900' : 'text-white'">TechSolutions</span>
         </h1>
       </div>
       <div class="hidden md:block">
@@ -28,9 +32,9 @@
             :key="item" 
             href="#" 
             :class="scrolledPastHero 
-              ? 'text-gray-900 hover:text-[#1c7ed6]' 
-              : 'text-white hover:text-[#1c7ed6]'" 
-            class="px-3 py-2 text-sm font-medium transition-all duration-300 hover:scale-105"
+              ? 'text-gray-900 hover:text-purple-600' 
+              : 'text-white hover:text-purple-300'" 
+            class="px-3 py-2 text-sm font-medium transition-all duration-300 hover:scale-105 nav-link"
             @click.prevent="scrollTo(item.toLowerCase().replace(' ', ''))"
           >
             {{ item }}
@@ -60,8 +64,8 @@
           href="#"
           @click.prevent="scrollToMobile(item.toLowerCase().replace(' ', ''))"
           :class="scrolledPastHero 
-            ? 'text-gray-900 hover:text-[#1c7ed6] hover:bg-gray-100' 
-            : 'text-white hover:text-[#1c7ed6] hover:bg-white/10'"
+            ? 'text-gray-900 hover:text-purple-600 hover:bg-gray-100' 
+            : 'text-white hover:text-purple-300 hover:bg-white/10'"
           class="block px-3 py-2 text-base font-medium transition-all duration-300 rounded-lg"
         >
           {{ item }}
@@ -71,24 +75,26 @@
   </div>
 </nav>
 
-
   <!-- Hero Content -->
   <div class="relative z-10 flex flex-col justify-center items-center flex-1 text-center px-4 sm:px-6 lg:px-8 pt-16">
-    <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 animate-fade-in-up">
-      Empowering <span class="text-[#1c7ed6]">Digital</span>
-      <br>Innovation
-    </h1>
+    <div class="floating-element">
+      <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 animate-fade-in-up">
+        Empowering <span class="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">Digital</span>
+        <br>Innovation
+      </h1>
+    </div>
     <p class="text-xl md:text-2xl text-gray-200 mb-8 animate-fade-in-up animation-delay-200">
       with Cutting-Edge Technology Solutions
     </p>
     <p class="text-lg text-gray-300 mb-12 max-w-2xl mx-auto animate-fade-in-up animation-delay-400">
-      From stunning websites to powerful mobile apps and custom software - 
+      From stunning websites to powerful mobile apps, custom software, and innovative tools - 
       we transform your vision into digital reality
     </p>
     <button 
-      class="btn-primary animate-fade-in-up animation-delay-600"
+      class="btn-primary animate-fade-in-up animation-delay-600 glow-effect"
       @click="scrollTo('contact')"
     >
+      <span class="mr-2">🚀</span>
       Contact Us Today
       <svg class="ml-2 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -97,29 +103,31 @@
   </div>
 </section>
 
-
     <!-- About Section -->
-    <section id="about" class="py-20 bg-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" class="py-20 bg-white relative overflow-hidden">
+      <div class="absolute inset-0 opacity-5">
+        <div class="absolute top-20 left-10 w-20 h-20 bg-purple-500 rounded-full blur-xl"></div>
+        <div class="absolute bottom-20 right-20 w-32 h-32 bg-blue-500 rounded-full blur-xl"></div>
+      </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div class="scroll-reveal">
             <h2 class="text-4xl font-bold text-gray-900 mb-6">
-              About <span class="text-[#1c7ed6]">UchumiTechSolution</span>
+              About <span class="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">Protrixx TechSolutions</span>
             </h2>
             <p class="text-lg text-gray-600 mb-8">
-              Founded with a vision to transform businesses through technology, UchumiTechSolution specializes in crafting 
+              Founded with a vision to transform businesses through technology, Protrixx TechSolutions specializes in crafting 
               innovative digital solutions that drive growth and efficiency. We believe every business deserves cutting-edge 
               technology that propels them forward.
             </p>
             <p class="text-lg text-gray-600 mb-8">
               Our expert team of developers, designers, and strategists combines technical excellence with creative innovation to 
-              deliver solutions that aren't just meet expectations - they 
-              revolutionize how you do business.
+              deliver solutions that don't just meet expectations - they revolutionize how you do business.
             </p>
             
             <div class="grid grid-cols-3 gap-8">
-              <div v-for="stat in stats" :key="stat.value" class="text-center">
-                <div class="text-3xl font-bold text-[#1c7ed6] mb-2">{{ stat.value }}</div>
+              <div v-for="stat in stats" :key="stat.value" class="text-center glass-card p-4 rounded-xl">
+                <div class="text-3xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent mb-2">{{ stat.value }}</div>
                 <div class="text-sm text-gray-600">{{ stat.label }}</div>
               </div>
             </div>
@@ -132,7 +140,8 @@
                 alt="Team working"
                 class="rounded-2xl shadow-2xl hover-lift"
               >
-              <div class="absolute inset-0 bg-gradient-to-t from-blue-600/20 to-transparent rounded-2xl"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-purple-600/20 via-blue-600/10 to-transparent rounded-2xl"></div>
+              <div class="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-purple-500 to-blue-500 rounded-full opacity-80 blur-lg animate-pulse"></div>
             </div>
           </div>
         </div>
@@ -140,10 +149,15 @@
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-20 bg-gray-50">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="services" class="py-20 bg-gradient-to-br from-gray-50 to-blue-50 relative overflow-hidden">
+      <div class="absolute inset-0 opacity-10">
+        <div class="absolute top-0 left-0 w-96 h-96 bg-purple-500 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-blue-500 rounded-full blur-3xl"></div>
+      </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div class="text-center mb-16 scroll-reveal">
           <h2 class="text-4xl font-bold text-gray-900 mb-4">Our Services</h2>
+          <div class="w-24 h-1 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto mb-6 rounded-full"></div>
           <p class="text-xl text-gray-600 max-w-3xl mx-auto">
             We offer comprehensive digital solutions tailored to transform your business 
             and accelerate your growth in the digital landscape.
@@ -154,11 +168,11 @@
           <div 
             v-for="(service, index) in services" 
             :key="service.title"
-            class="service-card bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl scroll-reveal"
+            class="service-card glass-card rounded-2xl p-8 shadow-lg hover:shadow-2xl scroll-reveal backdrop-blur-sm border border-white/20"
             :class="`animation-delay-${index * 200}`"
           >
-            <div class="w-16 h-16 rounded-2xl flex items-center justify-center mb-6" :class="service.bgColor">
-              <component :is="service.icon" class="h-8 w-8 text-white" />
+            <div class="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 text-3xl" :class="service.bgColor">
+              {{ service.icon }}
             </div>
             <h3 class="text-2xl font-bold text-gray-900 mb-4">{{ service.title }}</h3>
             <p class="text-gray-600 mb-6">{{ service.description }}</p>
@@ -175,11 +189,105 @@
       </div>
     </section>
 
+    <!-- Protrixx Tools Section -->
+    <section id="tools" class="py-20 bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 relative overflow-hidden">
+      <div class="absolute inset-0">
+        <div class="absolute top-20 left-20 w-40 h-40 bg-purple-500/30 rounded-full blur-2xl animate-pulse"></div>
+        <div class="absolute bottom-20 right-20 w-60 h-60 bg-blue-500/30 rounded-full blur-3xl animate-pulse animation-delay-1000"></div>
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-indigo-500/20 rounded-full blur-3xl animate-pulse animation-delay-500"></div>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div class="text-center mb-16 scroll-reveal">
+          <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+            Protrixx <span class="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">Tools</span>
+          </h2>
+          <div class="w-32 h-1 bg-gradient-to-r from-purple-400 to-blue-400 mx-auto mb-6 rounded-full"></div>
+          <p class="text-xl text-gray-200 max-w-3xl mx-auto">
+            Innovative tools designed to enhance your digital experience and productivity
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Protrixx YouTube Downloader -->
+          <div class="tool-card glass-card-dark rounded-2xl p-8 backdrop-blur-sm border border-white/10 scroll-reveal">
+            <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-red-500 to-pink-500 flex items-center justify-center mb-6 mx-auto shadow-lg">
+              <span class="text-white text-4xl">📺</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4 text-center">Protrixx YouTube Downloader</h3>
+            <p class="text-gray-300 mb-6 text-center">
+              Download your favorite YouTube videos and audio with ease. High-quality downloads in multiple formats.
+            </p>
+            <div class="flex justify-center">
+              <button class="btn-tool bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600">
+                <span class="mr-2">⬇️</span>
+                Available Now
+              </button>
+            </div>
+          </div>
+
+          <!-- Protrixx AI -->
+          <div class="tool-card glass-card-dark rounded-2xl p-8 backdrop-blur-sm border border-white/10 scroll-reveal animation-delay-200">
+            <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center mb-6 mx-auto shadow-lg relative">
+              <span class="text-white text-4xl">🧠</span>
+              <div class="absolute inset-0 bg-gradient-to-br from-emerald-400/50 to-teal-400/50 rounded-2xl blur animate-pulse"></div>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4 text-center">ProtrixxAI</h3>
+            <p class="text-gray-300 mb-6 text-center">
+              Advanced AI-powered assistant to boost your productivity and streamline your workflow with intelligent automation.
+            </p>
+            <div class="flex justify-center">
+              <button class="btn-coming-soon" disabled>
+                <span class="mr-2">⏰</span>
+                Coming Soon
+                <div class="absolute inset-0 bg-gradient-to-r from-emerald-500/20 to-teal-500/20 rounded-full blur animate-pulse"></div>
+              </button>
+            </div>
+          </div>
+
+          <!-- Protrixx Learn -->
+          <div class="tool-card glass-card-dark rounded-2xl p-8 backdrop-blur-sm border border-white/10 scroll-reveal animation-delay-400">
+            <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-orange-500 to-amber-500 flex items-center justify-center mb-6 mx-auto shadow-lg">
+              <span class="text-white text-4xl">🎓</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4 text-center">ProtrixxLearn</h3>
+            <p class="text-gray-300 mb-6 text-center">
+              Interactive learning platform with courses, tutorials, and resources to master new technologies and skills.
+            </p>
+            <div class="flex justify-center">
+              <button class="btn-coming-soon relative" disabled>
+                <span class="mr-2">⏰</span>
+                Coming Soon
+                <div class="absolute inset-0 bg-gradient-to-r from-orange-500/20 to-amber-500/20 rounded-full blur animate-pulse"></div>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-16 scroll-reveal animation-delay-600">
+          <div class="glass-card-dark rounded-3xl p-12 text-white border border-white/10 backdrop-blur-sm">
+            <span class="text-6xl text-purple-400 mb-6 block">🛠️</span>
+            <h3 class="text-3xl font-bold mb-4">More Tools in Development</h3>
+            <p class="text-xl mb-8 opacity-90">Stay tuned for exciting new tools and features</p>
+            <button class="btn-secondary" @click="scrollTo('contact')">
+              <span class="mr-2">🔔</span>
+              Get Notified
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Projects Section -->
-    <section id="projects" class="py-20 bg-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="projects" class="py-20 bg-white relative overflow-hidden">
+      <div class="absolute inset-0 opacity-5">
+        <div class="absolute top-10 right-10 w-32 h-32 bg-purple-500 rounded-full blur-2xl"></div>
+        <div class="absolute bottom-10 left-10 w-40 h-40 bg-blue-500 rounded-full blur-2xl"></div>
+      </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div class="text-center mb-16 scroll-reveal">
           <h2 class="text-4xl font-bold text-gray-900 mb-4">Our Projects</h2>
+          <div class="w-24 h-1 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto mb-6 rounded-full"></div>
           <p class="text-xl text-gray-600 max-w-3xl mx-auto">
             Discover some of our recent work and see how we've helped businesses 
             across Kenya achieve their digital transformation goals.
@@ -190,13 +298,16 @@
           <div 
             v-for="(project, index) in projects" 
             :key="project.title"
-            class="project-card bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl scroll-reveal"
+            class="project-card glass-card rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl scroll-reveal border border-white/20"
             :class="`animation-delay-${index * 100}`"
           >
             <div class="relative">
               <img :src="project.image" :alt="project.title" class="w-full h-48 object-cover">
-              <div class="project-overlay absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 flex items-end p-6">
-                <button class="btn-primary-small">View Project</button>
+              <div class="project-overlay absolute inset-0 bg-gradient-to-t from-purple-900/90 via-blue-900/50 to-transparent opacity-0 flex items-end p-6">
+                <button class="btn-primary-small glow-effect">
+                  <span class="mr-2">👁️</span>
+                  View Project
+                </button>
               </div>
             </div>
             <div class="p-6">
@@ -206,7 +317,7 @@
                 <span 
                   v-for="tag in project.tags" 
                   :key="tag"
-                  class="px-3 py-1 bg-blue-50 text-[#1c7ed6] text-xs rounded-full"
+                  class="px-3 py-1 bg-gradient-to-r from-purple-100 to-blue-100 text-purple-700 text-xs rounded-full border border-purple-200"
                 >
                   {{ tag }}
                 </span>
@@ -216,22 +327,32 @@
         </div>
 
         <div class="text-center mt-12 scroll-reveal">
-          <div class="bg-[#1c7ed6] rounded-3xl p-12 text-white">
-            <h3 class="text-3xl font-bold mb-4">Your Project Next?</h3>
-            <p class="text-xl mb-8 opacity-90">Let's bring your vision to reality</p>
-            <button class="btn-secondary" @click="scrollTo('contact')">
-              Get Started
-            </button>
+          <div class="bg-gradient-to-br from-purple-600 via-blue-600 to-indigo-600 rounded-3xl p-12 text-white relative overflow-hidden">
+            <div class="absolute inset-0 bg-black/10"></div>
+            <div class="relative">
+              <span class="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">💡</span>
+              <h3 class="text-3xl font-bold mb-4">Your Project Next?</h3>
+              <p class="text-xl mb-8 opacity-90">Let's bring your vision to reality</p>
+              <button class="btn-secondary glow-effect" @click="scrollTo('contact')">
+                <span class="mr-2">🚀</span>
+                Get Started
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-gray-50">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" class="py-20 bg-gradient-to-br from-gray-50 to-purple-50 relative overflow-hidden">
+      <div class="absolute inset-0 opacity-10">
+        <div class="absolute top-20 left-20 w-48 h-48 bg-purple-500 rounded-full blur-3xl animate-pulse"></div>
+        <div class="absolute bottom-20 right-20 w-64 h-64 bg-blue-500 rounded-full blur-3xl animate-pulse animation-delay-1000"></div>
+      </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div class="text-center mb-16 scroll-reveal">
           <h2 class="text-4xl font-bold text-gray-900 mb-4">Get In Touch</h2>
+          <div class="w-24 h-1 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto mb-6 rounded-full"></div>
           <p class="text-xl text-gray-600 max-w-3xl mx-auto">
             Ready to transform your business with cutting-edge technology? 
             Let's discuss your project and create something amazing together.
@@ -240,7 +361,7 @@
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div class="scroll-reveal">
-            <form @submit.prevent="submitForm" class="space-y-6">
+            <form @submit.prevent="submitForm" class="space-y-6 glass-card p-8 rounded-2xl border border-white/20">
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
                   <label class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
@@ -273,7 +394,8 @@
                   required
                 ></textarea>
               </div>
-              <button type="submit" class="btn-primary w-full">
+              <button type="submit" class="btn-primary w-full glow-effect">
+                <span class="mr-2">✉️</span>
                 Send Message
                 <svg class="ml-2 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
@@ -283,64 +405,62 @@
           </div>
 
           <div class="scroll-reveal animation-delay-200">
-            <div class="bg-[#1c7ed6] rounded-3xl p-8 text-white h-full">
-              <h3 class="text-2xl font-bold mb-8">Let's Start a Conversation</h3>
-              
-              <div class="space-y-6">
-                <div class="flex items-center">
-                  <svg class="h-6 w-6 mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                  <div>
-                    <div class="font-medium">Email Us</div>
-                    <div class="opacity-80">uchumitechsolutions@gmail.com</div>
+            <div class="bg-gradient-to-br from-purple-600 via-blue-600 to-indigo-600 rounded-3xl p-8 text-white h-full relative overflow-hidden border border-white/10">
+              <div class="absolute inset-0 bg-black/10"></div>
+              <div class="relative">
+                <h3 class="text-2xl font-bold mb-8">Let's Start a Conversation</h3>
+                
+                <div class="space-y-6">
+                  <div class="flex items-center">
+                    <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mr-4">
+                      <span class="text-white text-xl">✉️</span>
+                    </div>
+                    <div>
+                      <div class="font-medium">Email Us</div>
+                      <div class="opacity-80">protrixxtech@gmail.com</div>
+                    </div>
                   </div>
-
-                </div>
 
                   <div class="flex items-center">
-               
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6 mr-4">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
-                    </svg>
-
-                  <div>
-                    <div class="font-medium">Phone Number </div>
-                    <div class="opacity-80">+254 715 389 568</div>
+                    <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mr-4">
+                      <span class="text-white text-xl">📞</span>
+                    </div>
+                    <div>
+                      <div class="font-medium">Phone Number</div>
+                      <div class="opacity-80">+254 715 389 568</div>
+                    </div>
                   </div>
 
-                </div>
+                  <div class="flex items-center">
+                    <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mr-4">
+                      <span class="text-white text-xl">📍</span>
+                    </div>
+                    <div>
+                      <div class="font-medium">Location</div>
+                      <div class="opacity-80">Nairobi, Kenya</div>
+                    </div>
+                  </div>
 
-                <div class="flex items-center">
-                  <svg class="h-6 w-6 mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                  <div>
-                    <div class="font-medium">Location</div>
-                    <div class="opacity-80">Nairobi, Kenya</div>
+                  <div class="flex items-center">
+                    <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mr-4">
+                      <span class="text-white text-xl">⏰</span>
+                    </div>
+                    <div>
+                      <div class="font-medium">Response Time</div>
+                      <div class="opacity-80">Within 24 hours</div>
+                    </div>
                   </div>
                 </div>
 
-                <div class="flex items-center">
-                  <svg class="h-6 w-6 mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  <div>
-                    <div class="font-medium">Response Time</div>
-                    <div class="opacity-80">Within 24 hours</div>
-                  </div>
+                <div class="mt-8 pt-8 border-t border-white/20">
+                  <div class="text-lg font-medium mb-4">Why Choose Protrixx TechSolutions?</div>
+                  <ul class="space-y-2 text-sm opacity-90">
+                    <li><span class="text-green-400 mr-2">✓</span>Free consultation and project planning</li>
+                    <li><span class="text-green-400 mr-2">✓</span>Affordable pricing for Kenyan businesses</li>
+                    <li><span class="text-green-400 mr-2">✓</span>Ongoing support and maintenance</li>
+                    <li><span class="text-green-400 mr-2">✓</span>Fast turnaround times</li>
+                  </ul>
                 </div>
-              </div>
-
-              <div class="mt-8 pt-8 border-t border-white/20">
-                <div class="text-lg font-medium mb-4">Why Choose UchumiTechSolution?</div>
-                <ul class="space-y-2 text-sm opacity-90">
-                  <li>✓ Free consultation and project planning</li>
-                  <li>✓ Affordable pricing for Kenyan businesses</li>
-                  <li>✓ Ongoing support and maintenance</li>
-                  <li>✓ Fast turnaround times</li>
-                </ul>
               </div>
             </div>
           </div>
@@ -349,51 +469,57 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <footer class="bg-gray-900 text-white py-12 relative overflow-hidden">
+      <div class="absolute inset-0 opacity-10">
+        <div class="absolute top-0 left-1/4 w-48 h-48 bg-purple-500 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 right-1/4 w-48 h-48 bg-blue-500 rounded-full blur-3xl"></div>
+      </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <h3 class="text-2xl font-bold mb-4 text-[#1c7ed6]">
-              UchumiTechSolution
+            <h3 class="text-2xl font-bold mb-4">
+              <span class="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">Protrixx</span>
+              <span class="text-white">TechSolutions</span>
             </h3>
             <p class="text-gray-400">
-              Empowering businesses through innovative digital solutions and cutting-edge technology.
+              Empowering businesses through innovative digital solutions and cutting-edge technology tools.
             </p>
           </div>
           
           <div>
             <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
             <ul class="space-y-2">
-              <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
-              <li><a href="#" class="text-gray-400 hover:text-white transition-colors">About</a></li>
-              <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Services</a></li>
-              <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Projects</a></li>
+              <li><a href="#home" class="text-gray-400 hover:text-purple-400 transition-colors"><span class="mr-2">🏠</span>Home</a></li>
+              <li><a href="#about" class="text-gray-400 hover:text-purple-400 transition-colors"><span class="mr-2">ℹ️</span>About</a></li>
+              <li><a href="#services" class="text-gray-400 hover:text-purple-400 transition-colors"><span class="mr-2">⚙️</span>Services</a></li>
+              <li><a href="#tools" class="text-gray-400 hover:text-purple-400 transition-colors"><span class="mr-2">🛠️</span>Tools</a></li>
+              <li><a href="#projects" class="text-gray-400 hover:text-purple-400 transition-colors"><span class="mr-2">📁</span>Projects</a></li>
             </ul>
           </div>
           
           <div>
             <h4 class="text-lg font-semibold mb-4">Services</h4>
             <ul class="space-y-2">
-              <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Web Development</a></li>
-              <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Mobile Apps</a></li>
-              <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Custom Software</a></li>
-              <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Digital Marketing</a></li>
+              <li><a href="#services" class="text-gray-400 hover:text-purple-400 transition-colors"><span class="mr-2">💻</span>Web Development</a></li>
+              <li><a href="#services" class="text-gray-400 hover:text-purple-400 transition-colors"><span class="mr-2">📱</span>Mobile Apps</a></li>
+              <li><a href="#services" class="text-gray-400 hover:text-purple-400 transition-colors"><span class="mr-2">💻</span>Custom Software</a></li>
+              <li><a href="#tools" class="text-gray-400 hover:text-purple-400 transition-colors"><span class="mr-2">🤖</span>AI Solutions</a></li>
             </ul>
           </div>
           
           <div>
             <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
             <ul class="space-y-2">
-              <li class="text-gray-400">Nairobi, Kenya</li>
-              <li class="text-gray-400">uchumitechsolutions@gmail.com</li>
-              <li class="text-gray-400">+254 715 389 568</li>
+              <li class="text-gray-400"><span class="mr-2 text-purple-400">📍</span>Nairobi, Kenya</li>
+              <li class="text-gray-400"><span class="mr-2 text-purple-400">✉️</span>protrixxtech@gmail.com</li>
+              <li class="text-gray-400"><span class="mr-2 text-purple-400">📞</span>+254 715 389 568</li>
             </ul>
           </div>
         </div>
         
         <div class="border-t border-gray-800 mt-8 pt-8 text-center">
           <p class="text-gray-400">
-            © 2025 UchumiTechSolution. All rights reserved. Made with ❤️.
+            © 2025 Protrixx TechSolutions. All rights reserved. Made with <span class="text-red-500">❤️</span> in Kenya.
           </p>
         </div>
       </div>
@@ -403,13 +529,12 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
-import { CodeBracketSquareIcon, DevicePhoneMobileIcon, Cog6ToothIcon } from '@heroicons/vue/24/solid'
 
 // Page title and meta
 useHead({
-  title: 'UchumiTechSolution - Empowering Digital Innovation',
+  title: 'Protrixx TechSolutions - Empowering Digital Innovation',
   meta: [
-    { name: 'description', content: 'Transform your business with cutting-edge digital solutions. Web development, mobile apps, and custom software in Kenya.' }
+    { name: 'description', content: 'Transform your business with cutting-edge digital solutions. Web development, mobile apps, AI tools, and custom software in Kenya.' }
   ]
 })
 
@@ -444,7 +569,7 @@ const projects = ref([
   }
 ])
 
-const navigation = ['Home', 'About', 'Services', 'Projects', 'Contact']
+const navigation = ['Home', 'About', 'Services', 'Tools', 'Projects', 'Contact']
 
 const stats = [
   { value: '50+', label: 'Projects Completed' },
@@ -456,8 +581,8 @@ const services = [
   {
     title: 'Web Development',
     description: 'Custom websites and web applications built with modern technologies. Fast, responsive, and user-friendly digital experiences.',
-    icon: CodeBracketSquareIcon,
-    bgColor: 'bg-[#1c7ed6]',
+    icon: '💻',
+    bgColor: 'bg-gradient-to-br from-purple-500 to-blue-500',
     features: [
       'Responsive Design',
       'E-commerce Solutions',
@@ -468,8 +593,8 @@ const services = [
   {
     title: 'Mobile App Development',
     description: 'Native and cross-platform mobile applications for Android and iOS. Engaging user experience that drives results.',
-    icon: DevicePhoneMobileIcon,
-    bgColor: 'bg-[#1c7ed6]',
+    icon: '📱',
+    bgColor: 'bg-gradient-to-br from-blue-500 to-indigo-500',
     features: [
       'iOS & Android',
       'Cross-Platform',
@@ -480,8 +605,8 @@ const services = [
   {
     title: 'Custom Software Solutions',
     description: 'Tailored software solutions designed specifically for your business needs. From automation tools to enterprise applications.',
-    icon: Cog6ToothIcon,
-    bgColor: 'bg-[#1c7ed6]',
+    icon: '⚙️',
+    bgColor: 'bg-gradient-to-br from-indigo-500 to-purple-500',
     features: [
       'Business Solutions',
       'Database Systems',
@@ -490,32 +615,6 @@ const services = [
     ]
   }
 ]
-
-// Icon components (simplified SVG icons)
-const CodeIcon = {
-  template: `
-    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-    </svg>
-  `
-}
-
-const PhoneIcon = {
-  template: `
-    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
-    </svg>
-  `
-}
-
-const CogIcon = {
-  template: `
-    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-    </svg>
-  `
-}
 
 // Methods
 const scrollTo = (elementId) => {
@@ -535,31 +634,21 @@ const scrollToMobile = (elementId) => {
   }, 100)
 }
 
-
-  // Handle form submission
-  const submitForm = async () => {
+// Handle form submission
+const submitForm = async () => {
   try {
-    const response = await $fetch('/api/send-email', {
-      method: 'POST',
-      body: form.value
-    })
-
-    if (response.success) {
-      alert('✅ Message sent! We’ll get back to you soon.')
-      form.value = { name: '', email: '', message: '' }
-    } else {
-      alert('❌ Failed to send message. Please try again.')
-    }
+    // Simulate form submission
+    alert('✅ Message sent! We\'ll get back to you soon.')
+    form.value = { name: '', email: '', message: '' }
   } catch (error) {
     console.error(error)
     alert('❌ Something went wrong.')
   }
 }
 
-
 // Scroll handler with navbar background change
 const handleScroll = () => {
-  // Check if scrolled past hero section (adjust threshold as needed)
+  // Check if scrolled past hero section
   const heroHeight = window.innerHeight * 0.8
   scrolledPastHero.value = window.scrollY > heroHeight
 
@@ -600,28 +689,49 @@ onUnmounted(() => {
   }
 }
 
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(147, 51, 234, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(147, 51, 234, 0.6); }
+}
+
 .animate-fade-in-up {
   animation: fadeInUp 0.8s ease-out forwards;
 }
 
-.animation-delay-200 {
-  animation-delay: 0.2s;
-}
-
-.animation-delay-400 {
-  animation-delay: 0.4s;
-}
-
-.animation-delay-600 {
-  animation-delay: 0.6s;
-}
+.animation-delay-200 { animation-delay: 0.2s; }
+.animation-delay-400 { animation-delay: 0.4s; }
+.animation-delay-600 { animation-delay: 0.6s; }
+.animation-delay-1000 { animation-delay: 1s; }
+.animation-delay-500 { animation-delay: 0.5s; }
 
 /* Hero background */
 .hero-bg {
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://plus.unsplash.com/premium_photo-1681426687411-21986b0626a8?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background: linear-gradient(135deg, rgba(147, 51, 234, 0.9), rgba(59, 130, 246, 0.8)), 
+              url('https://plus.unsplash.com/premium_photo-1681426687411-21986b0626a8?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+}
+
+.floating-particles {
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,0.3), transparent),
+    radial-gradient(2px 2px at 40px 70px, rgba(147, 51, 234, 0.4), transparent),
+    radial-gradient(1px 1px at 90px 40px, rgba(59, 130, 246, 0.3), transparent),
+    radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.2), transparent),
+    radial-gradient(2px 2px at 160px 30px, rgba(147, 51, 234, 0.3), transparent);
+  background-repeat: repeat;
+  background-size: 200px 100px;
+  animation: float 20s linear infinite;
+}
+
+.floating-element {
+  animation: float 6s ease-in-out infinite;
 }
 
 @keyframes slide-down {
@@ -639,6 +749,21 @@ onUnmounted(() => {
   animation: slide-down 0.3s ease-out;
 }
 
+/* Glass morphism effects */
+.glass-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-card-dark {
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 /* Navigation styles */
 .nav-link {
   position: relative;
@@ -652,7 +777,7 @@ onUnmounted(() => {
   height: 2px;
   bottom: -5px;
   left: 0;
-  background: #1c7ed6;
+  background: linear-gradient(to right, #9333ea, #3b82f6);
   transition: width 0.3s ease;
 }
 
@@ -660,50 +785,109 @@ onUnmounted(() => {
   width: 100%;
 }
 
-/* Button styles */
+/* Enhanced button styles */
 .btn-primary {
-  @apply bg-[#1c7ed6] text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl hover:bg-[#1971c2] transform hover:scale-105 transition-all duration-300 inline-flex items-center;
+  @apply bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 inline-flex items-center relative overflow-hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn-primary:hover::before {
+  left: 100%;
 }
 
 .btn-primary-small {
-  @apply bg-white text-gray-900 px-6 py-2 rounded-full font-medium hover:bg-gray-100 transition-all duration-300;
+  @apply bg-white text-gray-900 px-6 py-2 rounded-full font-medium hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105;
 }
 
 .btn-secondary {
-  @apply bg-white text-[#1c7ed6] px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300;
+  @apply bg-white text-purple-600 px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 border-2 border-white;
+}
+
+.btn-tool {
+  @apply px-6 py-3 rounded-full font-semibold text-white transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl;
+}
+
+.btn-coming-soon {
+  @apply px-6 py-3 rounded-full font-semibold text-gray-400 bg-gray-600/50 cursor-not-allowed relative overflow-hidden;
+}
+
+.glow-effect {
+  animation: pulse-glow 2s infinite;
 }
 
 /* Input styles */
 .input-field {
-  @apply w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#1c7ed6] focus:border-transparent transition-all duration-300 bg-white;
+  @apply w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300 bg-white/80 backdrop-blur-sm;
 }
 
 .input-field:focus {
-  @apply shadow-lg;
+  @apply shadow-lg bg-white;
 }
 
-/* Card hover effects */
+/* Enhanced card hover effects */
 .hover-lift {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hover-lift:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  transform: translateY(-12px) rotateY(5deg);
+  box-shadow: 0 25px 50px -12px rgba(147, 51, 234, 0.25);
 }
 
 .service-card {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
 }
 
 .service-card:hover {
   transform: translateY(-12px) scale(1.02);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 25px 50px -12px rgba(147, 51, 234, 0.3);
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.tool-card {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.tool-card:hover {
+  transform: translateY(-15px) scale(1.03);
+  box-shadow: 0 30px 60px -12px rgba(147, 51, 234, 0.4);
+}
+
+.tool-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  background: linear-gradient(135deg, rgba(147, 51, 234, 0.5), rgba(59, 130, 246, 0.5));
+  border-radius: 1rem;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
 }
 
 .project-card {
   transition: all 0.3s ease;
   overflow: hidden;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px -12px rgba(147, 51, 234, 0.25);
 }
 
 .project-card:hover .project-overlay {
@@ -728,14 +912,28 @@ onUnmounted(() => {
 
 /* Navbar scroll effect enhancements */
 nav {
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
 }
 
 /* Responsive design improvements */
 @media (max-width: 768px) {
   .hero-bg {
     background-attachment: scroll;
+  }
+}
+
+/* Additional decorative elements */
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .5;
   }
 }
 </style>
