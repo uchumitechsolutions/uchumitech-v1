@@ -648,11 +648,12 @@ const scrollToMobile = (elementId) => {
 const submitForm = async () => {
   try {
     // Simulate form submission
-    // alert('✅ Message sent! We\'ll get back to you soon.')
+    
     isLoading.value = true
     const {data , error}  = await useFetch("/api/send-email" , {method:"post" , body:{name:form.value.name , email:form.value.email , message:form.value.message}})
     form.value = { name: '', email: '', message: '' }
     isLoading.value = false
+    alert('✅ Message sent! We\'ll get back to you soon.')
   } catch (error) {
     console.error(error)
     alert('❌ Something went wrong.')
