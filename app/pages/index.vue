@@ -394,12 +394,21 @@
                   required
                 ></textarea>
               </div>
-              <button type="submit" class="btn-primary w-full glow-effect">
-                <span class="mr-2">✉️</span>
+              <button :disabled="isLoading" type="submit" class="btn-primary  flex justify-center w-full glow-effect">
+                
+
+                <div v-if="isLoading" class="flex gap-2">
+    <div class="w-3 h-3 rounded-full animate-pulse bg-white"></div>
+    <div class="w-3 h-3 rounded-full animate-pulse bg-white"></div>
+    <div class="w-3 h-3 rounded-full animate-pulse bg-white"></div>
+</div>
+              <div class="flex items-center" v-show="isLoading == false">
+              <span   class="mr-2">✉️</span>
                 Send Message
                 <svg class="ml-2 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
                 </svg>
+                </div>
               </button>
             </form>
           </div>
@@ -511,7 +520,7 @@
             <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
             <ul class="space-y-2">
               <li class="text-gray-400"><span class="mr-2 text-purple-400">📍</span>Nairobi, Kenya</li>
-              <li class="text-gray-400"><span class="mr-2 text-purple-400">✉️</span>protrixxtech@gmail.com</li>
+              <li class="text-gray-400"><span class="mr-2 text-purple-400">✉️</span>protrixxtechsolutions@gmail.com</li>
               <li class="text-gray-400"><span class="mr-2 text-purple-400">📞</span>+254 715 389 568</li>
             </ul>
           </div>
@@ -540,6 +549,7 @@ useHead({
 
 // Reactive data
 const mobileMenuOpen = ref(false)
+const isLoading = ref(false)
 const scrolledPastHero = ref(false)
 const form = ref({
   name: '',
@@ -638,8 +648,11 @@ const scrollToMobile = (elementId) => {
 const submitForm = async () => {
   try {
     // Simulate form submission
-    alert('✅ Message sent! We\'ll get back to you soon.')
+    // alert('✅ Message sent! We\'ll get back to you soon.')
+    isLoading.value = true
+    const {data , error}  = await useFetch("/api/send-email" , {method:"post" , body:{name:form.value.name , email:form.value.email , message:form.value.message}})
     form.value = { name: '', email: '', message: '' }
+    isLoading.value = false
   } catch (error) {
     console.error(error)
     alert('❌ Something went wrong.')

@@ -1,7 +1,15 @@
 import { Resend } from 'resend';
 
+
+type Body =  {
+  name:string,
+  email:string,
+  message:string
+
+}
+
 export default defineEventHandler(async (event) => {
-  const body = await readBody(event);
+  const body:Body = await readBody(event);
 
   const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -18,6 +26,8 @@ export default defineEventHandler(async (event) => {
         <p>${body.message}</p>
       `
     });
+
+    console.log(data)
 
     return { success: true, data };
   } catch (error: any) {
