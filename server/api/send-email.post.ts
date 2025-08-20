@@ -7,8 +7,8 @@ export default defineEventHandler(async (event) => {
 
   try {
     const data = await resend.emails.send({
-      from: 'Acme <onboarding@resend.dev>',
-      to: 'edwardkabwoy@gmail.com', // Replace with your real email
+      from: 'onboarding@resend.dev',
+      to: 'protrixxtechsolutions@gmail.com', // Replace with your real email
       subject: `New message from ${body.name}`,
       html: `
         <h2>New Contact Form Submission</h2>

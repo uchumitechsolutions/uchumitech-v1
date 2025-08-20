@@ -417,7 +417,7 @@
                     </div>
                     <div>
                       <div class="font-medium">Email Us</div>
-                      <div class="opacity-80">protrixxtech@gmail.com</div>
+                      <div class="opacity-80">protrixxtechsolutions@gmail.com</div>
                     </div>
                   </div>
 
