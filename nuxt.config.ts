@@ -7,6 +7,26 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     '@nuxt/scripts',
     '@nuxt/image',
-    '@nuxtjs/tailwindcss'
-  ]
+    '@nuxtjs/tailwindcss',
+    '@nuxtjs/sitemap',
+  ] ,
+
+  
+  
+  sitemap: {
+    enabled:true,
+   urls:[
+    "/",
+    "/#home",
+    "/#about",
+    "/#contact",
+    "/#tools",
+    "/#projects",
+    "/#ervices"
+  ],
+
+  }
+
+  
+  
 })
