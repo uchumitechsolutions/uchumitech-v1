@@ -11,69 +11,8 @@
   </div>
 
   <!-- Navigation -->
-  <nav 
-  class="fixed top-0 w-full z-50 border-b transition-all duration-300"
-  :class="scrolledPastHero 
-    ? 'bg-white/95 backdrop-blur-md border-gray-200 text-gray-900 shadow-lg' 
-    : 'bg-transparent border-white/10 text-white'"
->
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex justify-between items-center h-16">
-      <div class="flex-shrink-0">
-        <h1 :class="scrolledPastHero ? 'text-gray-900' : 'text-white'" class="text-2xl font-bold transition-colors duration-300">
-          <span class="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">Protrixx</span>
-          <span :class="scrolledPastHero ? 'text-gray-900' : 'text-white'">TechSolutions</span>
-        </h1>
-      </div>
-      <div class="hidden md:block">
-        <div class="ml-10 flex items-baseline space-x-8">
-          <a 
-            v-for="item in navigation" 
-            :key="item" 
-            href="#" 
-            :class="scrolledPastHero 
-              ? 'text-gray-900 hover:text-purple-600' 
-              : 'text-white hover:text-purple-300'" 
-            class="px-3 py-2 text-sm font-medium transition-all duration-300 hover:scale-105 nav-link"
-            @click.prevent="scrollTo(item.toLowerCase().replace(' ', ''))"
-          >
-            {{ item }}
-          </a>
-        </div>
-      </div>
-      <div class="md:hidden">
-        <button @click="mobileMenuOpen = !mobileMenuOpen" :class="scrolledPastHero ? 'text-gray-900' : 'text-white'" class="p-2 transition-colors duration-300">
-          <svg v-if="!mobileMenuOpen" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-          <svg v-else class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
-      </div>
-    </div>
-    
-    <!-- Mobile Menu -->
-    <div v-if="mobileMenuOpen" 
-         :class="scrolledPastHero ? 'bg-white/95 backdrop-blur-md text-gray-900' : 'bg-black/80 text-white'"
-         class="md:hidden border-t border-gray-200/20 animate-slide-down">
-      <div class="px-2 pt-2 pb-3 space-y-1">
-        <a
-          v-for="item in navigation"
-          :key="item"
-          href="#"
-          @click.prevent="scrollToMobile(item.toLowerCase().replace(' ', ''))"
-          :class="scrolledPastHero 
-            ? 'text-gray-900 hover:text-purple-600 hover:bg-gray-100' 
-            : 'text-white hover:text-purple-300 hover:bg-white/10'"
-          class="block px-3 py-2 text-base font-medium transition-all duration-300 rounded-lg"
-        >
-          {{ item }}
-        </a>
-      </div>
-    </div>
-  </div>
-</nav>
+
+  <Navbar/>
 
   <!-- Hero Content -->
   <div class="relative z-10 flex flex-col justify-center items-center flex-1 text-center px-4 sm:px-6 lg:px-8 pt-16">
@@ -498,10 +437,10 @@
           <div>
             <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
             <ul class="space-y-2">
-              <li><a href="#home" class="text-gray-400 hover:text-purple-400 transition-colors"><span class="mr-2">🏠</span>Home</a></li>
+              <li><a href="/" class="text-gray-400 hover:text-purple-400 transition-colors"><span class="mr-2">🏠</span>Home</a></li>
               <li><a href="#about" class="text-gray-400 hover:text-purple-400 transition-colors"><span class="mr-2">ℹ️</span>About</a></li>
-              <li><a href="#services" class="text-gray-400 hover:text-purple-400 transition-colors"><span class="mr-2">⚙️</span>Services</a></li>
-              <li><a href="#tools" class="text-gray-400 hover:text-purple-400 transition-colors"><span class="mr-2">🛠️</span>Tools</a></li>
+              <li><a href="/services" class="text-gray-400 hover:text-purple-400 transition-colors"><span class="mr-2">⚙️</span>Services</a></li>
+              <li><a href="/tools" class="text-gray-400 hover:text-purple-400 transition-colors"><span class="mr-2">🛠️</span>Tools</a></li>
               <li><a href="#projects" class="text-gray-400 hover:text-purple-400 transition-colors"><span class="mr-2">📁</span>Projects</a></li>
             </ul>
           </div>
@@ -538,6 +477,7 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+import Navbar from '~/components/Navbar.vue'
 
 // Page title and meta
 useHead({
@@ -627,22 +567,22 @@ const services = [
 ]
 
 // Methods
-const scrollTo = (elementId) => {
-  const element = document.getElementById(elementId)
-  if (element) {
-    element.scrollIntoView({ behavior: 'smooth' })
-  }
-}
+// const scrollTo = (elementId) => {
+//   const element = document.getElementById(elementId)
+//   if (element) {
+//     element.scrollIntoView({ behavior: 'smooth' })
+//   }
+// }
 
-const scrollToMobile = (elementId) => {
-  mobileMenuOpen.value = false
-  setTimeout(() => {
-    const element = document.getElementById(elementId)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-    }
-  }, 100)
-}
+// const scrollToMobile = (elementId) => {
+//   mobileMenuOpen.value = false
+//   setTimeout(() => {
+//     const element = document.getElementById(elementId)
+//     if (element) {
+//       element.scrollIntoView({ behavior: 'smooth' })
+//     }
+//   }, 100)
+// }
 
 // Handle form submission
 const submitForm = async () => {
